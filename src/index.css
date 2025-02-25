@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Inria+Serif:wght@300;400;700&family=Inter:wght@100..900&family=Koulen&display=swap");
+@import "tailwindcss";
+
+:root {
+  --font-inria-sans: "Inria Sans", sans-serif;
+  --font-inria-serif: "Inria Serif", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-koulen: "Koulen", cursive;
+}
+
+.font-inria-sans {
+  font-family: var(--font-inria-sans);
+}
+
+.font-inria-serif {
+  font-family: var(--font-inria-serif);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.font-koulen {
+  font-family: var(--font-koulen);
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+header {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
