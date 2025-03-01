@@ -5,7 +5,7 @@ export default function Card(props) {
     <Link
       className="w-fit hover:cursor-pointer mt-24 m-5"
       to={{ pathname: "/product/", search: `?id=${props.id}` }}>
-      <div className="w-[200px] h-[300px] overflow-hidden">
+      <div className="w-[200px] h-[300px] overflow-hidden rounded-xl">
         <img
           src={props.image.url}
           className="object-cover w-full h-full shadow-md hover:scale-110 transition duration-300"
