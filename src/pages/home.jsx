@@ -1,19 +1,33 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../js/fetchData";
+import { sortByPrice, sortByRating, sortBySale } from "../js/handleSorting";
 import Card from "../components/card";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
 
   useEffect(() => {
     async function getData() {
       const data = await fetchData();
       setProducts(data);
+      setSortedProducts(data); // Default to unsorted data
     }
     getData();
   }, []);
 
-  const cardElements = products.map((element) => (
+  function handleSort(event) {
+    const value = event.target.value;
+    if (value === "Price") {
+      setSortedProducts(sortByPrice(products));
+    } else if (value === "Rating") {
+      setSortedProducts(sortByRating(products));
+    } else if (value === "Sale") {
+      setSortedProducts(sortBySale(products));
+    }
+  }
+
+  const cardElements = sortedProducts.map((element) => (
     <Card
       key={element.id}
       id={element.id}
@@ -30,7 +44,11 @@ export default function Home() {
         <h1 className="text-3xl">All products</h1>
         <div className="flex gap-3">
           <p>Sort By</p>
-          <select name="sortBy" id="sortBy" className="bg-[#EBEBEB] rounded-full px-3">
+          <select
+            name="sortBy"
+            id="sortBy"
+            className="bg-[#EBEBEB] rounded-full px-3"
+            onChange={handleSort}>
             <option value="blank" disabled></option>
             <option value="Price">Price</option>
             <option value="Rating">Rating</option>
