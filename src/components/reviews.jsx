@@ -24,7 +24,7 @@ const Dropdown = () => {
       </button>
 
       {isOpen && (
-        <div className="mt-2 bg-white border rounded-lg shadow-md p-4">
+        <div className="mt-2 bg-white rounded-lg shadow-xl p-4">
           {reviewData.length > 0 ? (
             reviewData.map((review) => (
               <div key={review.id} className="border-b last:border-b-0 pb-2 mb-2">

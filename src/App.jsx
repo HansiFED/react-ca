@@ -1,9 +1,10 @@
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/home.jsx";
 import Layout from "./components/layout.jsx";
 import ProductPage from "./pages/product.jsx";
 import Contact from "./pages/contact.jsx";
+import Checkout from "./pages/checkout.jsx";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path="/contact/" element={<Layout />}>
           <Route index element={<Contact />} />
+        </Route>
+        <Route path="/checkout/" element={<Layout />}>
+          <Route index element={<Checkout />} />
         </Route>
       </Routes>
     </BrowserRouter>

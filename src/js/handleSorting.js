@@ -1,3 +1,7 @@
+export function sortByNone(products) {
+  return products;
+}
+
 export function sortByPrice(products) {
   return [...products].sort((a, b) => {
     const priceA = a.discountedPrice ?? a.price;

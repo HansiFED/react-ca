@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../js/fetchData";
-import { sortByPrice, sortByRating, sortBySale } from "../js/handleSorting";
+import { sortByNone, sortByPrice, sortByRating, sortBySale } from "../js/handleSorting";
 import Card from "../components/card";
 
 export default function Home() {
@@ -18,7 +18,9 @@ export default function Home() {
 
   function handleSort(event) {
     const value = event.target.value;
-    if (value === "Price") {
+    if (value === "None") {
+      setSortedProducts(sortByNone(products));
+    } else if (value === "Price") {
       setSortedProducts(sortByPrice(products));
     } else if (value === "Rating") {
       setSortedProducts(sortByRating(products));
@@ -49,7 +51,7 @@ export default function Home() {
             id="sortBy"
             className="bg-[#EBEBEB] rounded-full px-3"
             onChange={handleSort}>
-            <option value="blank" disabled></option>
+            <option value="None">None</option>
             <option value="Price">Price</option>
             <option value="Rating">Rating</option>
             <option value="Sale">Sale</option>

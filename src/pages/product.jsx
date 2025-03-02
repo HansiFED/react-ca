@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import fetchSingleProduct from "../js/fetchSingleProduct";
 import Dropdown from "../components/reviews";
+import addToCart from "../js/addToCart";
 
 export default function ProductPage() {
   const [product, setProduct] = useState(null);
@@ -28,16 +29,27 @@ export default function ProductPage() {
           <p className="text-[18px]">{product.data.description}</p>
 
           {discountedPrice && discountedPrice !== originalPrice ? (
-            <div className="flex gap-2 text-[22px] ">
-              <p id="discountedPrice">{discountedPrice}NOK</p>
+            <div className="flex gap-2 text-[22px] flex-col ">
               <p id="priceTag" className="line-through text-gray-500">
                 {originalPrice}NOK
               </p>
+              <p id="discountedPrice">{discountedPrice}NOK</p>
+              <p className="text-sm text-gray-500">
+                {" "}
+                (save {Math.floor(originalPrice) - Math.floor(discountedPrice)}NOK today){" "}
+              </p>
             </div>
           ) : (
-            <p id="priceTag">{originalPrice} NOK</p>
+            <p id="priceTag" className="text-[22px]">
+              {originalPrice} NOK
+            </p>
           )}
-          <button className="bg-[#46B64A] text-white p-5 w-[200px]"> Add to Cart </button>
+          <button
+            onClick={addToCart}
+            className="bg-[#46B64A] text-white p-5 w-[200px] cursor-pointer">
+            {" "}
+            Add to Cart{" "}
+          </button>
           <Dropdown />
         </div>
       </section>

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 
 export default function Header() {
+  const shoppingCart = JSON.parse(localStorage.getItem("cart"));
+
   return (
     <header className="w-full flex h-30 p-10">
       <Link to={{ pathname: "/" }} className="flex items-center flex-grow">
@@ -22,7 +24,9 @@ export default function Header() {
         </form>
         <div>
           <ShoppingBag className="h-7 w-7 relative" />
-          <p className="absolute top-[60px] text-sm right-[40px] bg-[#46B64A] px-1 text-white">7</p>
+          <p className="absolute top-[60px] text-sm right-[40px] bg-[#46B64A] px-1 text-white">
+            {shoppingCart ? shoppingCart.length : ""}
+          </p>
         </div>
       </nav>
     </header>
