@@ -2,7 +2,7 @@ import handleFormData from "../js/handleFormData";
 
 export default function Contact() {
   return (
-    <main className="max-w-[700px] w-[95%]">
+    <main className="max-w-[700px] w-[95%] flex-1">
       <h1 className="text-[35px]"> Contact Us</h1>
       <form action={handleFormData} className="flex flex-col w-full">
         <label htmlFor="name" className="text-[20px]">

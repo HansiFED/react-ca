@@ -17,7 +17,7 @@ export default function ProductPage() {
   const originalPrice = product.data.price;
 
   return (
-    <main>
+    <main className="flex-1 flex">
       <section className="flex flex-col items-center md:flex-row flex-wrap gap-10">
         <img
           src={product.data.image.url}

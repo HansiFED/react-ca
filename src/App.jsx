@@ -5,6 +5,7 @@ import Layout from "./components/layout.jsx";
 import ProductPage from "./pages/product.jsx";
 import Contact from "./pages/contact.jsx";
 import Checkout from "./pages/checkout.jsx";
+import Cart from "./pages/cart.jsx";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/checkout/" element={<Layout />}>
           <Route index element={<Checkout />} />
+        </Route>
+        <Route path="/cart/" element={<Layout />}>
+          <Route index element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>

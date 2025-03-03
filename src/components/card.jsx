@@ -14,7 +14,20 @@ export default function Card(props) {
       </div>
       <div>
         <h3>{props.title}</h3>
-        <p>{props.discountedPrice ? props.discountedPrice : props.price} NOK</p>
+        <p>
+          {props.discountedPrice && props.discountedPrice !== props.price ? (
+            <>
+              <span>{props.discountedPrice} NOK</span>
+              <span
+                className="text-sm text-gray-500 ml-2"
+                style={{ textDecoration: "line-through" }}>
+                {props.price} NOK
+              </span>
+            </>
+          ) : (
+            <span>{props.discountedPrice ? props.discountedPrice : props.price} NOK</span>
+          )}
+        </p>
       </div>
     </Link>
   );

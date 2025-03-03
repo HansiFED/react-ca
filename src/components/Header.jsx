@@ -1,8 +1,21 @@
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
-  const shoppingCart = JSON.parse(localStorage.getItem("cart"));
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const updateCartCount = () => {
+      const shoppingCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartCount(shoppingCart.length);
+    };
+
+    updateCartCount();
+
+    window.addEventListener("storage", updateCartCount);
+    return () => window.removeEventListener("storage", updateCartCount);
+  }, []);
 
   return (
     <header className="w-full flex h-30 p-10">
@@ -13,21 +26,16 @@ export default function Header() {
         </div>
       </Link>
       <nav className="flex items-center gap-5">
-        <form action="" className="flex gap-[10px] relative items-center">
-          <img src="/searchIcon.svg" alt="search" className="absolute right-[10px]" />
-          <input
-            type="text"
-            name="searchBar"
-            id="searchBar"
-            className="h-10 rounded-full pl-4 pr-10 bg-[#EBEBEB]"
-          />
-        </form>
-        <div>
-          <ShoppingBag className="h-7 w-7 relative" />
-          <p className="absolute top-[60px] text-sm right-[40px] bg-[#46B64A] px-1 text-white">
-            {shoppingCart ? shoppingCart.length : ""}
-          </p>
-        </div>
+        <Link to={{ pathname: "/cart" }}>
+          <div className="cursor-pointer relative">
+            <ShoppingBag className="h-7 w-7" />
+            {cartCount > 0 && (
+              <p className="absolute top-4 left-1 bg-[#46B64A] px-1 text-white text-sm">
+                {cartCount}
+              </p>
+            )}
+          </div>
+        </Link>
       </nav>
     </header>
   );
