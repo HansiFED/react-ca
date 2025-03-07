@@ -1,5 +1,12 @@
+import { useEffect } from "react";
+import { useCart } from "../js/CartContext.jsx";
+
 export default function Checkout() {
-  localStorage.clear();
+  const { clearCart } = useCart();
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]); // ✅ clearCart is now stable, preventing infinite loop
 
   return (
     <main className="flex flex-1 items-center flex-col">

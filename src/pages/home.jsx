@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <main className="max-w-[1400px] w-full p-10 flex flex-col flex-1">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-wrap">
         <h1 className="text-3xl">All products</h1>
         <div className="flex gap-3 items-center">
           <form className="flex gap-[10px] relative items-center">
@@ -82,7 +82,7 @@ export default function Home() {
           </select>
         </div>
       </div>
-      <section className="flex flex-wrap justify-between">{cardElements}</section>
+      <section className="flex flex-wrap justify-between ">{cardElements}</section>
     </main>
   );
 }

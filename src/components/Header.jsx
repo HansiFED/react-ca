@@ -1,26 +1,15 @@
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useCart } from "../js/CartContext.jsx";
 
 export default function Header() {
-  const [cartCount, setCartCount] = useState(0);
-
-  useEffect(() => {
-    const updateCartCount = () => {
-      const shoppingCart = JSON.parse(localStorage.getItem("cart")) || [];
-      setCartCount(shoppingCart.length);
-    };
-
-    updateCartCount();
-
-    window.addEventListener("storage", updateCartCount);
-    return () => window.removeEventListener("storage", updateCartCount);
-  }, []);
+  const { cart } = useCart();
+  const cartCount = cart.length;
 
   return (
-    <header className="w-full flex h-30 p-10">
-      <Link to={{ pathname: "/" }} className="flex items-center flex-grow">
-        <div id="logoContainer" className="flex items-center ">
+    <header className="w-full flex h-30 p-10 justify-between">
+      <Link to={{ pathname: "/" }} className="flex items-center">
+        <div id="logoContainer" className="flex items-center">
           <img className="w-[60px] h-[60px]" src="/wesell-logo.png" alt="Store logo" />
           <p className="font-koulen text-4xl"> WESELL </p>
         </div>

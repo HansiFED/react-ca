@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import fetchSingleProduct from "../js/fetchSingleProduct";
 import Dropdown from "../components/reviews";
-import addToCart from "../js/addToCart";
+import { useCart } from "../js/CartContext.jsx";
 
 export default function ProductPage() {
+  const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     fetchSingleProduct().then(setProduct);
   }, []);
 
-  if (!product) return null; // Prevents rendering before data loads
-  console.log(product);
+  if (!product) return null;
 
   const discountedPrice = product.data.discountedPrice;
   const originalPrice = product.data.price;
@@ -29,14 +29,13 @@ export default function ProductPage() {
           <p className="text-[18px]">{product.data.description}</p>
 
           {discountedPrice && discountedPrice !== originalPrice ? (
-            <div className="flex gap-2 text-[22px] flex-col ">
+            <div className="flex gap-2 text-[22px] flex-col">
               <p id="priceTag" className="line-through text-gray-500">
-                {originalPrice}NOK
+                {originalPrice} NOK
               </p>
-              <p id="discountedPrice">{discountedPrice}NOK</p>
+              <p id="discountedPrice">{discountedPrice} NOK</p>
               <p className="text-sm text-gray-500">
-                {" "}
-                (save {Math.floor(originalPrice) - Math.floor(discountedPrice)}NOK today){" "}
+                (Save {Math.floor(originalPrice) - Math.floor(discountedPrice)} NOK today)
               </p>
             </div>
           ) : (
@@ -45,10 +44,9 @@ export default function ProductPage() {
             </p>
           )}
           <button
-            onClick={addToCart}
+            onClick={() => addToCart(product)}
             className="bg-[#46B64A] text-white p-5 w-[200px] cursor-pointer">
-            {" "}
-            Add to Cart{" "}
+            Add to Cart
           </button>
           <Dropdown />
         </div>
