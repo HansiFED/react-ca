@@ -21,9 +21,9 @@ export default function Cart() {
   return (
     <main className="flex flex-1 flex-col justify-center items-center w-[90%] max-w-[500px]">
       <div className="flex items-center gap-7 flex-col">
-        <div className="flex">
-          <h1 className="text-[32px]">Your shopping cart</h1>
-          <img src="/cartPageIcon.png" alt="shopping cart icon" />
+        <div className="flex flex-wrap gap-6 items-center mt-10 md:mt-0">
+          <h1 className="text-[25px] md:text-[32px] ">Your shopping cart</h1>
+          <img className="w-10" src="/cartPageIcon.png" alt="shopping cart icon" />
         </div>
         <div className="w-full">
           {cart.map((element, index) => (
@@ -44,10 +44,8 @@ export default function Cart() {
           <p>Total:</p>
           <p>{total} NOK</p>
         </div>
-        <Link className="self-end" to="/checkout">
-          <button className="bg-[#46B64A] text-white p-5 w-[200px] cursor-pointer self-end">
-            Checkout
-          </button>
+        <Link className="self-center mt-10 mb-16 md:mt-0 md:self-end" to="/checkout">
+          <button className="bg-[#46B64A] text-white p-5 w-[200px] cursor-pointer">Checkout</button>
         </Link>
       </div>
     </main>
