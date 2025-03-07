@@ -28,10 +28,10 @@ export default function Contact() {
   };
 
   return (
-    <main className="max-w-[700px] w-[95%] flex-1">
-      <h1 className="text-[35px]">Contact us</h1>
+    <main className="max-w-[700px] w-[95%] flex-1 flex flex-col justify-center">
+      <h1 className="text-[35px] mb-10 text-center">Contact us</h1>
       {submitted ? (
-        <p className="text-green-600">Thank you! Your message has been sent.</p>
+        <p className="text-green-600 text-center">Thank you! Your message has been sent.</p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col w-full gap-4">
           <label className="text-[18px]">Full name</label>
