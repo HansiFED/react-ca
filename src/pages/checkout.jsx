@@ -6,7 +6,7 @@ export default function Checkout() {
 
   useEffect(() => {
     clearCart();
-  }, [clearCart]); // ✅ clearCart is now stable, preventing infinite loop
+  }, [clearCart]);
 
   return (
     <main className="flex flex-1 items-center justify-center flex-col text-center gap-5 mx-10">

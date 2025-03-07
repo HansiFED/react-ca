@@ -17,7 +17,7 @@ const Dropdown = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex justify-between items-center w-full bg-gray-300 px-4 py-2 rounded-lg">
-        <span className="flex items-center gap-2">
+        <span className="flex items-center">
           <span className="text-yellow-500">⭐</span> Reviews ({reviewData.length})
         </span>
         {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -30,13 +30,12 @@ const Dropdown = () => {
               <div key={review.id} className="border-b last:border-b-0 pb-2 mb-2">
                 <p className="font-semibold">{review.username}</p>
 
-                {/* Display filled and outlined stars */}
                 <div className="flex items-center gap-1 text-yellow-500">
                   {Array.from({ length: 5 }, (_, i) => (
                     <Star
                       key={i}
                       size={14}
-                      fill={i < review.rating ? "currentColor" : "none"} // Filled for rating, outlined otherwise
+                      fill={i < review.rating ? "currentColor" : "none"}
                       stroke="currentColor"
                     />
                   ))}
