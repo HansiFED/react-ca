@@ -53,10 +53,10 @@ export default function Home() {
   ));
 
   return (
-    <main className="max-w-[1400px] w-full p-10 flex flex-col flex-1">
-      <div className="flex justify-between items-center flex-wrap">
+    <main className="max-w-[1400px] w-full p-0 pt-10 pb-10 md:p-10 flex flex-col flex-1">
+      <div className="flex items-center text-center justify-center md:justify-between flex-wrap gap-5">
         <h1 className="text-3xl">All products</h1>
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-5 md:gap-3 items-center justify-center flex-wrap">
           <form className="flex gap-[10px] relative items-center">
             <img src="/searchIcon.svg" alt="search" className="absolute right-[10px]" />
             <input
@@ -69,20 +69,22 @@ export default function Home() {
               onChange={handleSearch}
             />
           </form>
-          <p>Sort By</p>
-          <select
-            name="sortBy"
-            id="sortBy"
-            className="bg-[#EBEBEB] rounded-full px-3"
-            onChange={handleSort}>
-            <option value="None">None</option>
-            <option value="Price">Price</option>
-            <option value="Rating">Rating</option>
-            <option value="Sale">Sale</option>
-          </select>
+          <div className="flex gap-3">
+            <p>Sort By</p>
+            <select
+              name="sortBy"
+              id="sortBy"
+              className="bg-[#EBEBEB] rounded-full px-3"
+              onChange={handleSort}>
+              <option value="None">None</option>
+              <option value="Price">Price</option>
+              <option value="Rating">Rating</option>
+              <option value="Sale">Sale</option>
+            </select>
+          </div>
         </div>
       </div>
-      <section className="flex flex-wrap justify-between ">{cardElements}</section>
+      <section className="flex flex-wrap justify-center">{cardElements}</section>
     </main>
   );
 }

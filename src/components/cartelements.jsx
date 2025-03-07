@@ -5,7 +5,7 @@ export default function CartElements(props) {
   const { removeFromCart } = useCart();
 
   return (
-    <div className="flex flex-row border-b mt-10 border-gray-300 pb-5 last:border-gray-300">
+    <div className="flex flex-row border-b mt-5 border-gray-300 pb-5 last:border-gray-300">
       <img
         className="w-[100px] h-[150px] object-cover rounded-xl"
         src={props.img}
