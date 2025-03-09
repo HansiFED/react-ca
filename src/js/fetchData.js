@@ -7,7 +7,5 @@ export async function fetchData() {
 
   const data = result.data;
 
-  console.log(data);
-
   return data;
 }
