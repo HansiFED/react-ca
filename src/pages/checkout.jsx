@@ -2,6 +2,15 @@ import { useEffect } from "react";
 import { useCart } from "../js/CartContext.jsx";
 import { Link } from "react-router-dom";
 
+/**
+ * Renders the checkout confirmation screen.
+ *
+ * - Clears the cart upon mounting using `clearCart`.
+ * - Displays a success message, a generated order ID, and a button to return home.
+ *
+ * @component
+ * @returns {JSX.Element} The checkout confirmation view.
+ */
 export default function Checkout() {
   const { clearCart } = useCart();
 

@@ -2,6 +2,17 @@ import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp, Star } from "lucide-react";
 import fetchSingleProduct from "../js/fetchSingleProduct";
 
+/**
+ * Dropdown component for displaying product reviews.
+ *
+ * - Fetches product data on mount using `fetchSingleProduct`.
+ * - Displays a toggleable section listing user reviews.
+ * - Each review shows the username, star rating (1–5), and description.
+ * - If no reviews are available, a message is shown instead.
+ *
+ * @component
+ * @returns {JSX.Element} The dropdown review section.
+ */
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState(null);

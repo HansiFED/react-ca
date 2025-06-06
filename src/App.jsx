@@ -8,6 +8,16 @@ import Contact from "./pages/contact.jsx";
 import Checkout from "./pages/checkout.jsx";
 import Cart from "./pages/cart.jsx";
 
+/**
+ * The root component of the application.
+ *
+ * - Wraps the app in the CartContext provider.
+ * - Defines all application routes using React Router.
+ * - Applies a shared Layout to each route.
+ *
+ * @component
+ * @returns {JSX.Element} The application with routing and context setup.
+ */
 function App() {
   return (
     <CartContext>

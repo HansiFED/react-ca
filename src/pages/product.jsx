@@ -3,6 +3,18 @@ import fetchSingleProduct from "../js/fetchSingleProduct";
 import Dropdown from "../components/reviews";
 import { useCart } from "../js/CartContext.jsx";
 
+/**
+ * Renders a single product detail page.
+ *
+ * - Fetches product data based on the URL `id` query parameter.
+ * - Displays product image, title, description, and price.
+ * - Shows discounted price if available, with savings calculated.
+ * - Allows users to add the product to their cart via `addToCart`.
+ * - Includes a dropdown to view product reviews.
+ *
+ * @component
+ * @returns {JSX.Element|null} The product detail view, or null if the product is not yet loaded.
+ */
 export default function ProductPage() {
   const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
@@ -29,7 +41,7 @@ export default function ProductPage() {
           <p className="text-[18px] mb-6">{product.data.description}</p>
 
           {discountedPrice && discountedPrice !== originalPrice ? (
-            <div className="flex gap-2 text-[22px] flex-col  md:items-start">
+            <div className="flex gap-2 text-[22px] flex-col md:items-start">
               <p id="priceTag" className="line-through text-gray-500">
                 {originalPrice} NOK
               </p>

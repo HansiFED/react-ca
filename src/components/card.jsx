@@ -1,5 +1,22 @@
 import { Link } from "react-router-dom";
 
+/**
+ * Renders a product card that links to the product detail page.
+ *
+ * Displays the product image, title, and pricing information,
+ * including discounts if applicable. Clicking the card navigates
+ * to the product detail view using the product's ID.
+ *
+ * @component
+ * @param {Object} props - The props for the Card component.
+ * @param {string} props.id - The unique identifier for the product.
+ * @param {string} props.title - The title of the product.
+ * @param {Object} props.image - The image object for the product.
+ * @param {string} props.image.url - The URL of the product image.
+ * @param {number} props.price - The original price of the product.
+ * @param {number} [props.discountedPrice] - The discounted price, if available.
+ * @returns {JSX.Element} A clickable product card component.
+ */
 export default function Card(props) {
   return (
     <Link

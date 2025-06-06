@@ -1,6 +1,23 @@
 import { X } from "lucide-react";
 import { useCart } from "../js/CartContext.jsx";
 
+/**
+ * Renders an individual product entry within the shopping cart view.
+ *
+ * Displays product image, title, description, and pricing.
+ * Also includes a clickable icon to remove the item from the cart.
+ *
+ * @component
+ * @param {Object} props - The props for the CartElements component.
+ * @param {string} props.id - The unique identifier for the product.
+ * @param {string} props.img - The URL of the product image.
+ * @param {string} props.alt - The alt text for the product image.
+ * @param {string} props.title - The title of the product.
+ * @param {string} props.desc - A short description of the product.
+ * @param {number} props.price - The original price of the product.
+ * @param {number} [props.discount] - The discounted price, if applicable.
+ * @returns {JSX.Element} A visual representation of a cart item.
+ */
 export default function CartElements(props) {
   const { removeFromCart } = useCart();
 

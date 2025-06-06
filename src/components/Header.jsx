@@ -2,6 +2,15 @@ import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "../js/CartContext.jsx";
 
+/**
+ * Renders the website header with navigation and branding.
+ *
+ * Includes a logo that links to the home page and a shopping bag icon
+ * that shows the number of items currently in the cart.
+ *
+ * @component
+ * @returns {JSX.Element} The header element with navigation.
+ */
 export default function Header() {
   const { cart } = useCart();
   const cartCount = cart.length;

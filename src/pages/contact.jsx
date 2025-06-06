@@ -1,5 +1,16 @@
 import { useState } from "react";
 
+/**
+ * Renders a contact form with basic validation and submission feedback.
+ *
+ * - Validates name, email, subject, and body fields.
+ * - Displays error messages for invalid input.
+ * - Shows a confirmation message upon successful submission.
+ * - Does not send the data to a server (client-side only).
+ *
+ * @component
+ * @returns {JSX.Element} The contact form interface.
+ */
 export default function Contact() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);

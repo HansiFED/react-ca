@@ -3,6 +3,17 @@ import { fetchData } from "../js/fetchData";
 import { sortByNone, sortByPrice, sortByRating, sortBySale } from "../js/handleSorting";
 import Card from "../components/card";
 
+/**
+ * Displays the homepage with a searchable and sortable list of products.
+ *
+ * - Fetches product data on mount using `fetchData`.
+ * - Allows sorting by price, rating, sale, or no sorting.
+ * - Filters product list based on a text search.
+ * - Renders each product using the `Card` component.
+ *
+ * @component
+ * @returns {JSX.Element} The product listing view with search and sort functionality.
+ */
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);

@@ -2,8 +2,19 @@ import CartElements from "../components/cartelements";
 import { useCart } from "../js/CartContext.jsx";
 import { Link } from "react-router-dom";
 
+/**
+ * Renders the shopping cart page.
+ *
+ * - If the cart is empty, displays a friendly message and a button to return to the home page.
+ * - If the cart has items, it renders each cart item using the `CartElements` component.
+ * - Shows the total price and a button to proceed to checkout.
+ *
+ * @component
+ * @returns {JSX.Element} The cart page view.
+ */
 export default function Cart() {
   const { cart, total } = useCart();
+
   if (cart.length === 0) {
     return (
       <main className="flex flex-1 flex-col justify-center items-center w-[90%] max-w-[500px] text-center">
@@ -22,7 +33,7 @@ export default function Cart() {
     <main className="flex flex-1 flex-col justify-center items-center w-[90%] max-w-[500px]">
       <div className="flex items-center gap-7 flex-col">
         <div className="flex flex-wrap gap-6 items-center mt-10 md:mt-0">
-          <h1 className="text-[25px] md:text-[32px] ">Your shopping cart</h1>
+          <h1 className="text-[25px] md:text-[32px]">Your shopping cart</h1>
           <img className="w-10" src="/cartPageIcon.png" alt="shopping cart icon" />
         </div>
         <div className="w-full">
