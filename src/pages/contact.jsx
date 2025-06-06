@@ -23,7 +23,6 @@ export default function Contact() {
     } else {
       setErrors({});
       setSubmitted(true);
-      console.log("Form submitted:", { name, email, subject, body });
     }
   };
 
